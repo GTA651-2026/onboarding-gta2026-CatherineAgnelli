@@ -1,0 +1,153 @@
+{
+  "name": "LEGO Canada Expert Chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lego-chatbot",
+        "responseMode": "onReceived",
+        "options": {
+          "responseData": "firstEntryJson"
+        }
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 250]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "question",
+              "value": "={{$json[\"question\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set Question",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [450, 250]
+    },
+    {
+      "parameters": {
+        "requestMethod": "GET",
+        "url": "=https://www.lego.com/en-ca/search?q={{$json[\"question\"]}}",
+        "options": {
+          "headers": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "User-Agent": "Mozilla/5.0 (compatible; n8n-bot/1.0; +https://n8n.io)"
+          },
+          "fullResponse": true
+        }
+      },
+      "name": "Fetch LEGO Search",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [650, 250]
+    },
+    {
+      "parameters": {
+        "functionCode": "const question = $json.question || '';
+const html = $node['Fetch LEGO Search'].json.body || '';
+const prompt = `You are an expert on LEGO Canada (lego.com/en-ca). Answer the user's question using only information from LEGO Canada. Do not invent details. If the website content is unclear, say you do not know.\n\nUser question: ${question}\n\nReference content:\n${html}`;
+return [{ json: { prompt } }];"
+      },
+      "name": "Build Claude Prompt",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [850, 250]
+    },
+    {
+      "parameters": {
+        "authentication": "headerAuth",
+        "url": "https://api.anthropic.com/v1/complete",
+        "options": {
+          "bodyContentType": "json",
+          "headers": {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          }
+        },
+        "bodyParametersJson": "={\n  \"model\": \"claude-3.5-mini\",\n  \"prompt\": $json.prompt,\n  \"max_tokens_to_sample\": 800,\n  \"temperature\": 0.2,\n  \"top_p\": 1.0\n}",
+        "headerAuth": {
+          "name": "Anthropic API Key",
+          "value": "={{$env.ANTHROPIC_API_KEY}}"
+        }
+      },
+      "name": "Claude LLM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [1050, 250]
+    },
+    {
+      "parameters": {
+        "responseBody": "={{{ $json.completion }}}"
+      },
+      "name": "Respond",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [1250, 250]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set Question",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Question": {
+      "main": [
+        [
+          {
+            "node": "Fetch LEGO Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch LEGO Search": {
+      "main": [
+        [
+          {
+            "node": "Build Claude Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Claude Prompt": {
+      "main": [
+        [
+          {
+            "node": "Claude LLM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude LLM": {
+      "main": [
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
