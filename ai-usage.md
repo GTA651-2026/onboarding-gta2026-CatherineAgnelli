@@ -13,6 +13,9 @@ Livrable 1:
 Outil : Aucun
 Version / date d'accès : 13 mai 2026
 
+Livrable M1:
+Outil: ChatGPT, 20 mai 2026
+
 *(Si plusieurs outils, dupliquez cette section.)*
 
 ---
@@ -20,6 +23,8 @@ Version / date d'accès : 13 mai 2026
 ## 2. Ce qu'il m'a aidé à faire
 
 Livrable 1: Aucune utilisation
+
+Livrable M1: Remplissage de la section ''coûts'' du tableau
 *(Tâche précise — ex. : « structurer la section ROI », pas : « écrire le travail ».)*
 
 __
@@ -29,6 +34,8 @@ __
 ## 3. Sources et chiffres que j'ai vérifiés moi-même
 
 Livrable 1: Aucune utilisation
+
+Livrable M1: vérification des tarifs sur les sites webs respectifs des agents du tableau
 *(Pour chaque affirmation ou chiffre fourni par l'IA → source primaire consultée.)*
 
 - __
@@ -39,6 +46,8 @@ Livrable 1: Aucune utilisation
 ## 4. Ce que j'ai modifié ou rejeté
 
 Livrable 1: Aucune utilisation
+
+Livrable M1: rien modifié
 *(Ce que l'IA a proposé mais que vous avez changé, corrigé ou écarté — et pourquoi.)*
 
 - __
@@ -52,4 +61,4 @@ Je déclare que le contenu final reflète mon jugement personnel. Je suis respon
 de l'exactitude, de la pertinence et du raisonnement — outil IA utilisé ou non.
 
 Nom : Catherine Agnelli
-Date : 13 mai 2026
+Date : 13 mai 2026, 20 mai 2026
