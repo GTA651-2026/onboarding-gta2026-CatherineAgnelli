@@ -1,90 +1,84 @@
 # Rétroaction automatisée -- S01 (L'IA générative et l'ère agentique : orchestrer des experts sans en être un)
 
-_Générée le 2026-05-28T20:11:39+00:00 -- Run `20260528T200936Z-acdfcf6a`_
+_Générée le 2026-05-28T20:46:40+00:00 -- Run `20260528T204526Z-4170164e`_
 
-Ce document est produit par un pipeline reproductible (vérification SQL déterministe + analyse LLM du brief et de la déclaration IA). Une revue humaine précède toujours sa publication. **À ce stade expérimental, aucune note ni étiquette de niveau n'est diffusée : l'objectif est purement formatif.**
+Ce document est produit par un pipeline reproductible (validation automatique du livrable + analyse LLM du brief et de la déclaration IA). Une revue humaine précède toujours sa publication. **À ce stade expérimental, aucune note ni étiquette de niveau n'est diffusée : l'objectif est purement formatif.**
 
 ---
 
-## 1. Vérification automatique de la requête SQL
+## 1. Rétroaction pédagogique sur le brief
 
-La vérification automatique n'a pas pu être réalisée (gate non applicable (type=text_artifact, must_run=False)).
-
-
-## 2. Rétroaction pédagogique sur le brief
-
-> Le brief identifie clairement le problème d'affaires et fournit des chiffres chiffrés convaincants sur la valeur créée. Il manque cependant des éléments organisationnels (taille/secteur/budget), une grille de justification par critère et des recommandations différenciées et mesurables par contexte.
+> Le brief identifie clairement le problème d'efficacité du service client et fournit des chiffres convaincants sur la valeur créée. Cependant il manque une différenciation organisationnelle, une grille de justification détaillée et des conditions/indicateurs mesurables pour appuyer la recommandation devant un comité de direction.
 
 ### Observations par dimension
 
 **Contexte organisationnel**
-- Observation : Le brief mentionne seulement le cas choisi (Klarna) sans préciser taille, secteur, budget ni différencier PME vs grande entreprise.
-- Piste d'amélioration : Ajouter une description chiffrée du contexte (taille, secteur, budget) et expliquer comment la recommandation divergerait pour une PME vs une grande entreprise.
+- Observation : Le brief ne précise ni la taille, ni le secteur, ni le budget et n'offre aucune différenciation PME vs grande entreprise.
+- Piste d'amélioration : Ajouter deux profils distincts (PME et grande entreprise) avec taille, secteur et budget estimés, puis expliquer comment la recommandation diffère pour chacun.
 
 **Justification criteres**
-- Observation : Aucune grille de sélection ni justification pour les critères impact, faisabilité, risque et coût n'est fournie pour les agents.
-- Piste d'amélioration : Présenter une matrice avec les trois agents et donner pour chaque cellule une justification factuelle ou une hypothèse vérifiable couvrant impact, faisabilité, risque et coût.
+- Observation : La grille de critères (impact, faisabilité, risque, coût) et les justifications pour chaque agent sont absentes du document.
+- Piste d'amélioration : Compléter une grille pour les trois agents en justifiant chaque cellule par une donnée chiffrée ou une hypothèse vérifiable pour les quatre critères.
 
 **Role specialise identifie**
-- Observation : Le rôle est nommé clairement comme « Agent de service client » et lié à la fonction du service à la clientèle.
-- Piste d'amélioration : Préciser en langage métier un exemple concret (ex. : « répond aux demandes de remboursement rapides ») et distinguer explicitement un agent spécialisé d'un agent généraliste.
+- Observation : Le document identifie clairement 'Agent de service client' comme rôle orchestré, en langage métier.
+- Piste d'amélioration : Préciser au moins un exemple concret illustrant la distinction entre cet agent spécialisé et un agent généraliste (ex. : types de tâches prises en charge).
 
 **Recommandation argumentee**
-- Observation : Le texte suggère de conserver l'intervention humaine pour les cas à plus forte valeur mais ne formule pas une recommandation claire par contexte ni n'expose les compromis avec les options rejetées.
-- Piste d'amélioration : Formuler une recommandation finale distincte pour PME vs grande entreprise, en expliquant pourquoi les autres options ont été écartées (compromis valeur/risque/coût).
+- Observation : Le texte suggère de ne pas éliminer le service humain pour les cas de haute valeur mais n'expose pas formellement un compromis ni pourquoi d'autres options sont écartées.
+- Piste d'amélioration : Formuler une recommandation explicite par contexte (PME vs grande entreprise) et expliquer pourquoi les autres options ont été rejetées en termes de valeur et risque.
 
 **Role specialise**
-- Observation : Le brief indique que l'agent est équivalent à 700 employés humains, impliquant qu'il remplace/augmente des agents du service client.
-- Piste d'amélioration : Décrire précisément quelles tâches humaines sont remplacées ou augmentées, et expliquer pourquoi ce rôle est stratégique pour l'organisation (ex. : réduction du temps de réponse, maintien de la satisfaction client).
+- Observation : Le rôle est nommé 'Agent de service client' mais l'auteur n'explique quel expert humain il remplace ou augmente ni pourquoi ce rôle est stratégique.
+- Piste d'amélioration : Décrire quel poste humain est remplacé/augmenté (ex. : opérateur support niveau 1) et argumenter pourquoi ce rôle est stratégique pour l'organisation.
 
 **Probleme affaires**
-- Observation : Le problème est formulé clairement: « temps de traitement des demandes de service à la clientèle trop élevés » et besoin d'augmenter le nombre de demandes traitées efficacement.
-- Piste d'amélioration : Condenser en 1–2 phrases et ajouter, si possible, un indicateur de départ (ex. : volume de demandes/jour ou SLA actuel) pour mieux cadrer l'enjeu.
+- Observation : Le problème identifié est le temps de traitement des demandes de service client trop élevés et le besoin de répondre à plus de demandes efficacement.
+- Piste d'amélioration : Ajouter un ancrage chiffré (volume de demandes, SLA manquants, coût horaire) pour rendre le problème directement mesurable par la direction.
 
 **Valeur creee**
-- Observation : Le brief fournit des chiffres concrets: équivalent à 700 employés, temps moyen par demande réduit de 11 à 2 minutes (≈81 %) et réduction des erreurs de 25 %.
-- Piste d'amélioration : Citer la source publique pour ces chiffres et relier la valeur à métriques business (ex. : économies annuelles ou amélioration du taux de satisfaction client).
+- Observation : La valeur est quantifiée: équivalent à 700 employés, temps par demande réduit de 11 à 2 minutes (~81%) et erreurs réduites de 25%.
+- Piste d'amélioration : Citer la source publique de ces chiffres et préciser la période/condition de mesure pour rendre la valeur vérifiable.
 
 **Risque mitigation**
-- Observation : Le risque principal identifié est la dégradation de la qualité du service et la mitigation proposée est le renvoi partiel vers le personnel humain pour les cas à forte valeur.
-- Piste d'amélioration : Rendre la mitigation plus concrète (ex. : définir un seuil d'escalade, procédures d'audit qualité trimestriel et indicateurs de surveillance).
+- Observation : Le risque principal identifié est la dégradation de la qualité; la mitigation proposée est de rediriger vers le personnel humain les cas à forte valeur.
+- Piste d'amélioration : Ajouter des mesures concrètes de suivi (indicateurs, seuils d'alerte, audits périodiques) et une procédure d'escalade formalisée.
 
 **Condition succes**
-- Observation : La condition indiquée est de conserver l'assistance humaine pour les cas de haute valeur et n'utiliser l'agent que pour les cas rapides et moins critiques.
-- Piste d'amélioration : Formuler une condition de succès mesurable et temporelle (ex. : adoption ≥ 70 % sur les requêtes < 5 min en 6 mois, ou réduction des escalades de X %).
+- Observation : La condition énoncée est de ne pas éliminer le service humain et d'utiliser l'agent pour cas rapides et de moindre valeur, sans indicateur mesurable.
+- Piste d'amélioration : Formuler une condition observable (ex. : taux d'escalade < X%, adoption > Y% en 6 mois, réduction du temps moyen de traitement de Z%).
 
 **Ai disclosure**
-- Observation : Le document rappelle de mettre à jour ai-usage.md mais ne confirme ni son contenu ni les outils utilisés.
-- Piste d'amélioration : Inclure un fichier ai-usage.md mentionnant les outils utilisés (ou « aucun »), l'étape d'utilisation, la validation humaine et les limites observées.
+- Observation : Le brief inclut un rappel de mettre à jour ai-usage.md mais ne fournit pas d'information sur la présence ou le contenu de ce fichier.
+- Piste d'amélioration : Ajouter un fichier ai-usage.md indiquant les outils utilisés (ou 'aucun'), l'étape d'utilisation, la validation humaine et les limites observées.
 
-## 3. Déclaration d'utilisation de l'IA
+## 2. Déclaration d'utilisation de l'IA
 
-> La déclaration nomme l'outil et décrit précisément l'étape où l'IA a aidé ainsi que la vérification humaine effectuée. Il manque toutefois la version/modèle de l'outil et aucune limite ou erreur constatée n'est documentée.
+> La déclaration indique l'outil utilisé et la tâche aidée, et vous signalez des vérifications humaines des chiffres. Il manque toutefois une mention explicite des limites ou des erreurs observées, et l'outil n'est pas précisé avec une version/modèle.
 
 **Sujets bien couverts dans votre déclaration :**
 
+- outils utilisés (nom + version/modèle)
 - à quelle étape l'IA a été utilisée
 - comment la sortie a été validée par l'humain
 
 **Sujets à ajouter ou expliciter pour la prochaine itération :**
 
-- outils utilisés (nom + version/modèle)
 - limites ou erreurs observées
 
-## 4. Pistes d'action pour la prochaine itération
+## 3. Pistes d'action pour la prochaine itération
 
-- Compléter `ai-usage.md` en y ajoutant : outils utilisés (nom + version/modèle).
-- Compléter `ai-usage.md` en y ajoutant : limites ou erreurs observées.
+- Compléter i-usage.md en y ajoutant : limites ou erreurs observées.
 
 ---
 
-## 5. Traçabilité
+## 4. Traçabilité
 
-- **Run ID :** `20260528T200936Z-acdfcf6a`
+- **Run ID :** `20260528T204526Z-4170164e`
 - **Devoir :** `S01`
 - **Étudiant·e :** `CatherineAgnelli`
-- **Commit analysé :** `be82ea1`
-- **Audit (côté instructeur) :** `tools/instructor/feedback_pipeline/audit/20260528T200936Z-acdfcf6a/CatherineAgnelli/`
+- **Commit analysé :** `4412cbb`
+- **Audit (côté instructeur) :** `tools/instructor/feedback_pipeline/audit/20260528T204526Z-4170164e/CatherineAgnelli/`
 - **Prompts (SHA-256) :**
   - `rubric_grader_system` : `505f32d1d8319d66...`
   - `ai_usage_grader_system` : `81cb7fdf89bda55a...`
