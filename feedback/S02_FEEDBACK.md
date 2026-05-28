@@ -1,6 +1,6 @@
 # Rétroaction automatisée -- S02 (Sélectionner des solutions IA : décision, opérations, productivité)
 
-_Générée le 2026-05-28T17:19:48+00:00 -- Run `20260528T171846Z-876e9e4f`_
+_Générée le 2026-05-28T17:27:59+00:00 -- Run `20260528T172647Z-afdf4262`_
 
 Ce document est produit par un pipeline reproductible (vérification SQL déterministe + analyse LLM du brief et de la déclaration IA). Une revue humaine précède toujours sa publication. **À ce stade expérimental, aucune note ni étiquette de niveau n'est diffusée : l'objectif est purement formatif.**
 
@@ -13,57 +13,58 @@ La vérification automatique n'a pas pu être réalisée (gate non applicable (t
 
 ## 2. Rétroaction pédagogique sur le brief
 
-> Le bref présente une comparaison structurée entre PME et grande entreprise avec une grille de critères et des recommandations contextuelles. Il gagnerait à enrichir les justifications par des chiffres/assomptions vérifiables et à fournir la déclaration d'usage d'IA manquante.
+> Le brief distingue clairement deux tailles d'organisation et propose des recommandations cohérentes avec la grille de critères, mais les justifications restent souvent générales. Pour être défendable en comité, ajoutez des données chiffrées, un budget/secteur par scénario et un ai-usage.md complet.
 
 ### Observations par dimension
 
 **Contexte organisationnel**
-- Observation : Le document présente clairement deux scénarios (PME 50 employés et 500+ employés) et donne des recommandations distinctes pour chaque contexte.
-- Piste d'amélioration : Préciser le secteur d'activité et un ordre de grandeur de budget pour chaque scénario afin de mieux justifier les différences de recommandation.
+- Observation : Le brief présente deux scénarios («Scénario 1: PME 50 employés» et «Scénario 2: 500+ employés») et adapte la recommandation selon la taille.
+- Piste d'amélioration : Préciser pour chaque scénario le secteur d'activité et une estimation de budget pour justifier plus finement les différences de recommandation.
 
 **Justification criteres**
-- Observation : La grille liste impact, faisabilité, coût et risque pour chaque agent et offre des justifications concises (par ex. «si la suite 365 est déjà utilisée, la faisabilité est à 5/5»).
-- Piste d'amélioration : Développer les justifications avec chiffres ou hypothèses vérifiables (coûts estimés chiffrés, métriques d'impact) et combler les justifications vagues.
+- Observation : La grille donne des scores pour Impact, Faisabilité, Coût et Risque pour chaque agent avec courtes justifications (ex. «4 sur 5, étant donné le manque probable de CFO dans la PME»).
+- Piste d'amélioration : Renforcer les justifications par données chiffrées ou hypothèses vérifiables (ex. estimation de coûts, délai d'implantation, indicateurs d'impact) et combler les éléments vagues.
 
 **Role specialise identifie**
 - Observation : Les rôles sont nommés en termes métier: «Gestion financière automatisée», «Agent CRM de vente et service client», «Assistant généralisé».
-- Piste d'amélioration : Ajouter un exemple concret par rôle montrant une tâche métier réalisée et la valeur mesurable (ex. réduction du délai de clôture, taux de conversion).
+- Piste d'amélioration : Illustrer pour chaque rôle une valeur métier concrète (ex. 'réduction du DSO de X jours', 'augmentation du taux de conversion de Y%').
 
 **Recommandation argumentee**
-- Observation : Il y a une recommandation claire par contexte (Copilot pour la PME; Salesforce Einstein pour la grande entreprise) avec raisons liées à intégration et impact.
-- Piste d'amélioration : Expliciter le compromis entre options (parquoi une option est écartée) et articuler les risques et gains quantifiés pour convaincre un comité de direction.
+- Observation : La recommandation finale différencie les contextes: Copilot 365 pour PME <50 et Salesforce Einstein pour entreprise >500, avec brèves raisons liées à intégration et impact.
+- Piste d'amélioration : Présenter explicitement le compromis entre options (pourquoi une option est écartée) et résumer les risques et gains attendus pour le comité de direction.
 
 **Ai disclosure**
-- Observation : Aucun fichier ai-usage.md mentionné ni renseigné dans le brief.
-- Piste d'amélioration : Fournir un ai-usage.md indiquant les outils IA utilisés (ou «aucun»), l'étape d'utilisation, la validation humaine et les limites identifiées.
+- Observation : ai-usage.md absent (aucune mention d'utilisation d'IA dans le document).
+- Piste d'amélioration : Fournir un fichier ai-usage.md indiquant les outils (ou 'aucun'), les étapes d'utilisation, la validation humaine et les limites observées.
 
 ## 3. Déclaration d'utilisation de l'IA
 
-> La déclaration indique l'outil utilisé et précise la tâche où l'IA a aidé, ainsi que la vérification des chiffres. En revanche, il manque la version/modèle exact de l'outil et aucune limite ou erreur observée n'est décrite.
+> La déclaration précise l'étape d'utilisation et la vérification des chiffres par l'étudiant·e, mais elle omet une information importante sur l'outil (version/modèle) et ne signale pas de limites ou d'erreurs observées. Veuillez ajouter la version/modèle de ChatGPT utilisé et décrire explicitement les limites ou erreurs rencontrées.
 
 **Sujets bien couverts dans votre déclaration :**
 
-- outils utilisés (nom + version/modèle)
 - à quelle étape l'IA a été utilisée
 - comment la sortie a été validée par l'humain
 
 **Sujets à ajouter ou expliciter pour la prochaine itération :**
 
+- outils utilisés (nom + version/modèle)
 - limites ou erreurs observées
 
 ## 4. Pistes d'action pour la prochaine itération
 
+- Compléter `ai-usage.md` en y ajoutant : outils utilisés (nom + version/modèle).
 - Compléter `ai-usage.md` en y ajoutant : limites ou erreurs observées.
 
 ---
 
 ## 5. Traçabilité
 
-- **Run ID :** `20260528T171846Z-876e9e4f`
+- **Run ID :** `20260528T172647Z-afdf4262`
 - **Devoir :** `S02`
 - **Étudiant·e :** `CatherineAgnelli`
-- **Commit analysé :** `1e568b4`
-- **Audit (côté instructeur) :** `tools/instructor/feedback_pipeline/audit/20260528T171846Z-876e9e4f/CatherineAgnelli/`
+- **Commit analysé :** `bfb7367`
+- **Audit (côté instructeur) :** `tools/instructor/feedback_pipeline/audit/20260528T172647Z-afdf4262/CatherineAgnelli/`
 - **Prompts (SHA-256) :**
   - `rubric_grader_system` : `505f32d1d8319d66...`
   - `ai_usage_grader_system` : `81cb7fdf89bda55a...`
