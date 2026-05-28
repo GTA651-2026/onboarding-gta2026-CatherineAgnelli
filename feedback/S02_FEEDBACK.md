@@ -1,6 +1,6 @@
 # Rétroaction automatisée -- S02 (Sélectionner des solutions IA : décision, opérations, productivité)
 
-_Générée le 2026-05-26T14:09:19+00:00 -- Run `20260526T140803Z-ec457158`_
+_Générée le 2026-05-28T17:19:48+00:00 -- Run `20260528T171846Z-876e9e4f`_
 
 Ce document est produit par un pipeline reproductible (vérification SQL déterministe + analyse LLM du brief et de la déclaration IA). Une revue humaine précède toujours sa publication. **À ce stade expérimental, aucune note ni étiquette de niveau n'est diffusée : l'objectif est purement formatif.**
 
@@ -13,42 +13,42 @@ La vérification automatique n'a pas pu être réalisée (gate non applicable (t
 
 ## 2. Rétroaction pédagogique sur le brief
 
-> Le brief propose des recommandations claires pour deux tailles d'entreprise et compare des options par critères. Cependant il manque complètement le modèle dimensionnel, les vérifications techniques et la traçabilité requises pour production.
+> Le bref présente une comparaison structurée entre PME et grande entreprise avec une grille de critères et des recommandations contextuelles. Il gagnerait à enrichir les justifications par des chiffres/assomptions vérifiables et à fournir la déclaration d'usage d'IA manquante.
 
 ### Observations par dimension
 
-**Model quality**
-- Observation : Le document contient des recommandations produit mais aucun schéma dimensionnel, grain, ni tables déclarées.
-- Piste d'amélioration : Fournir un schéma dimensionnel (schéma étoile/constellation), préciser le grain et lister les dimensions et faits clés.
+**Contexte organisationnel**
+- Observation : Le document présente clairement deux scénarios (PME 50 employés et 500+ employés) et donne des recommandations distinctes pour chaque contexte.
+- Piste d'amélioration : Préciser le secteur d'activité et un ordre de grandeur de budget pour chaque scénario afin de mieux justifier les différences de recommandation.
 
-**Validation quality**
-- Observation : Aucune requête SQL ou script de vérification n'est présenté pour valider les résultats ou traiter les cas limites.
-- Piste d'amélioration : Ajouter des requêtes de validation reproductibles qui montrent que la question CEO est répondue et traitent les NULLs et cas limites.
+**Justification criteres**
+- Observation : La grille liste impact, faisabilité, coût et risque pour chaque agent et offre des justifications concises (par ex. «si la suite 365 est déjà utilisée, la faisabilité est à 5/5»).
+- Piste d'amélioration : Développer les justifications avec chiffres ou hypothèses vérifiables (coûts estimés chiffrés, métriques d'impact) et combler les justifications vagues.
 
-**Executive justification**
-- Observation : Recommandation: Pour une PME de moins de 50 employés, je crois que Copilot 365 est une bonne option... Pour une grande entreprise de plus de 500 employés, je crois que Salesforce Einstein est la meilleure option.
-- Piste d'amélioration : Formuler une recommandation décisionnelle concise (p.ex. 'Choisir X pour <cas>, budget attendu et KPI d'impact') et ajouter chiffres synthétiques d'impact et de coût.
+**Role specialise identifie**
+- Observation : Les rôles sont nommés en termes métier: «Gestion financière automatisée», «Agent CRM de vente et service client», «Assistant généralisé».
+- Piste d'amélioration : Ajouter un exemple concret par rôle montrant une tâche métier réalisée et la valeur mesurable (ex. réduction du délai de clôture, taux de conversion).
 
-**Process trace**
-- Observation : Aucune mention d'historique git, ni note d'utilisation d'IA ou journal de décision visible dans le brief.
-- Piste d'amélioration : Inclure un log de commits significatifs, une note IA décrivant outils et validations humaines, et un decision log lié au choix final.
+**Recommandation argumentee**
+- Observation : Il y a une recommandation claire par contexte (Copilot pour la PME; Salesforce Einstein pour la grande entreprise) avec raisons liées à intégration et impact.
+- Piste d'amélioration : Expliciter le compromis entre options (parquoi une option est écartée) et articuler les risques et gains quantifiés pour convaincre un comité de direction.
 
-**Reproducibility**
-- Observation : Aucun artefact, script ou instruction reproduisible (README, DuckDB, chemins) n'est fourni.
-- Piste d'amélioration : Fournir un dépôt clonable avec scripts/jeux d'exemple et instructions claires pour reproduire l'analyse en moins de 5 minutes.
+**Ai disclosure**
+- Observation : Aucun fichier ai-usage.md mentionné ni renseigné dans le brief.
+- Piste d'amélioration : Fournir un ai-usage.md indiquant les outils IA utilisés (ou «aucun»), l'étape d'utilisation, la validation humaine et les limites identifiées.
 
 ## 3. Déclaration d'utilisation de l'IA
 
-> La déclaration indique l'outil utilisé et décrit l'étape où l'IA a aidé, ainsi que la vérification des chiffres par l'étudiant. Il manque toutefois la mention précise du modèle/version de l'outil et aucune limite ou erreur observée n'est décrite.
+> La déclaration indique l'outil utilisé et précise la tâche où l'IA a aidé, ainsi que la vérification des chiffres. En revanche, il manque la version/modèle exact de l'outil et aucune limite ou erreur observée n'est décrite.
 
 **Sujets bien couverts dans votre déclaration :**
 
+- outils utilisés (nom + version/modèle)
 - à quelle étape l'IA a été utilisée
 - comment la sortie a été validée par l'humain
 
 **Sujets à ajouter ou expliciter pour la prochaine itération :**
 
-- outils utilisés (nom + version/modèle)
 - limites ou erreurs observées
 
 ## 4. Pistes d'action pour la prochaine itération
@@ -59,11 +59,11 @@ La vérification automatique n'a pas pu être réalisée (gate non applicable (t
 
 ## 5. Traçabilité
 
-- **Run ID :** `20260526T140803Z-ec457158`
+- **Run ID :** `20260528T171846Z-876e9e4f`
 - **Devoir :** `S02`
 - **Étudiant·e :** `CatherineAgnelli`
-- **Commit analysé :** `9bd5956`
-- **Audit (côté instructeur) :** `tools/instructor/feedback_pipeline/audit/20260526T140803Z-ec457158/CatherineAgnelli/`
+- **Commit analysé :** `1e568b4`
+- **Audit (côté instructeur) :** `tools/instructor/feedback_pipeline/audit/20260528T171846Z-876e9e4f/CatherineAgnelli/`
 - **Prompts (SHA-256) :**
   - `rubric_grader_system` : `505f32d1d8319d66...`
   - `ai_usage_grader_system` : `81cb7fdf89bda55a...`
